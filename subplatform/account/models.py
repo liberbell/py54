@@ -13,6 +13,8 @@ class CustomUser(AbstractUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now())
 
+    is_writer = models.BooleanField(default=False, verbose_name="Are you a writer?")
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 

@@ -8,3 +8,7 @@ def home(request):
 def register(request):
     
     pass
+
+def my_login(request):
+    
+    pass

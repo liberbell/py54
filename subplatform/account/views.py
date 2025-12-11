@@ -3,12 +3,12 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     
-    pass
+    return render(request, "account/index.html")
 
 def register(request):
     
-    pass
+    return render(request, "account/register.html")
 
 def my_login(request):
     
-    pass
+    return render(request, "account/my-login.html")

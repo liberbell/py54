@@ -16,7 +16,8 @@ def register(request):
             form.save()
             return HttpResponse("User registered.")
     
-    return render(request, "account/register.html")
+    context = {"RegisterForm": form}
+    return render(request, "account/register.html", context)
 
 def my_login(request):
     

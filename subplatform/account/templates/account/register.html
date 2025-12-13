@@ -1,7 +1,7 @@
 <html>
     <h1> Register </h1>
 
-    <form action="POST" autocomplete="off">
+    <form method="POST" autocomplete="off">
         {% csrf_token %}
         {{RegisterForm.as_p}}
         <input type="submit" value="Submit">

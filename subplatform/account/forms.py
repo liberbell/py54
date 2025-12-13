@@ -4,7 +4,5 @@ from . models import CustomUser
 class CreateUserForm(UserCreationForm):
 
     class Meta:
-        db_table = ''
-        managed = True
-        verbose_name = 'ModelName'
-        verbose_name_plural = 'ModelNames'
+        model = CustomUser
+        fields = ["email", "first_name", "last_name", "password1", "password2", "is_writer"]

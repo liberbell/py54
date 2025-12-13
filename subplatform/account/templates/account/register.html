@@ -3,6 +3,8 @@
 
     <form action="POST" autocomplete="off">
         {% csrf_token %}
+        {{RegisterForm.ap_p}}
+        <input type="submit" value="Submit">
     </form>
 
 </html>

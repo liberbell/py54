@@ -43,4 +43,5 @@ def my_login(request):
     
                 return HttpResponse("Welcome client")
             
-    return render(request, "account/my-login.html")
+    context = {"LoginForm": form}
+    return render(request, "account/my-login.html", context)

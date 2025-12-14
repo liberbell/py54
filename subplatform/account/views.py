@@ -36,6 +36,6 @@ def my_login(request):
             if user is not None and user.is_writer == True:
                 login(request, user)
     
-                return render("Welcome writer")
+                return HttpResponse("Welcome writer")
             
     return render(request, "account/my-login.html")

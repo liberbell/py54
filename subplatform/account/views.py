@@ -38,4 +38,9 @@ def my_login(request):
     
                 return HttpResponse("Welcome writer")
             
+            if user is not None and user.is_writer == False:
+                login(request, user)
+    
+                return HttpResponse("Welcome client")
+            
     return render(request, "account/my-login.html")

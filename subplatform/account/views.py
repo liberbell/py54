@@ -22,5 +22,10 @@ def register(request):
     return render(request, "account/register.html", context)
 
 def my_login(request):
+
+    form = AuthenticationForm()
+
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
     
     return render(request, "account/my-login.html")

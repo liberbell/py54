@@ -32,6 +32,10 @@ def my_login(request):
             username = request.POST.get("username")
             password = request.POST.get("password")
 
-            user = authenticate(request, username=username, passowrd=password)
+            user = authenticate(request, username=username, password=password)
+            if user is not None and user.is_writer == True:
+                login(request, user)
     
+                return render("Welcome writer")
+            
     return render(request, "account/my-login.html")

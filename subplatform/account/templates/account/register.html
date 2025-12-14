@@ -5,12 +5,14 @@
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/lux/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'static/styles.css' %}">
     </head>
-    <h1> Register </h1>
+    <div class="container bg-white shadow-md">   
+        <h1> Register </h1>
 
-    <form method="POST" autocomplete="off">
-        {% csrf_token %}
-        {{RegisterForm.as_p}}
-        <input type="submit" value="Submit">
-    </form>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{RegisterForm.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
 </html>

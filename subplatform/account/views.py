@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . forms import CreateUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
@@ -16,7 +16,9 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("User registered.")
+
+            return redirect("my-login")
+            # return HttpResponse("User registered.")
     
     context = {"RegisterForm": form}
     return render(request, "account/register.html", context)

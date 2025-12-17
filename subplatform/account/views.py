@@ -38,12 +38,12 @@ def my_login(request):
             if user is not None and user.is_writer == True:
                 login(request, user)
     
-                return HttpResponse("Welcome writer")
+                return redirect("writer-dashboard")
             
             if user is not None and user.is_writer == False:
                 login(request, user)
     
-                return HttpResponse("Welcome client")
+                return redirect("client-dashboard")
             
     context = {"LoginForm": form}
     return render(request, "account/my-login.html", context)

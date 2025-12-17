@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-def client_dashboard(request):
+def writer_dashboard(request):
 
     pass

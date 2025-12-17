@@ -14,7 +14,7 @@
 
         <form method="POST" autocomplete="off">
             {% csrf_token %}
-            {{RegisterForm.as_p}}
+            {{RegisterForm|crispy}}
             <input type="submit" value="Submit">
         </form>
     </div>

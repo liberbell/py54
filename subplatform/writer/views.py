@@ -6,3 +6,8 @@ from django.contrib.auth.decorators import login_required
 def writer_dashboard(request):
 
     return render(request, "writer/writer-dashboard.html")
+
+@login_required(login_url="my-login")
+def create_article(request):
+
+    return render(request, "writer/create-article.html")

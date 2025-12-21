@@ -5,4 +5,4 @@ class ArticleForm(ModelForm):
 
     class Meta:
         model = "Article"
-        fields = ["title", "content", "is_premium"]
+        fields = ["title", "content", "is_premium",]

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from . forms import ArticleForm
 
 # Create your views here.
 @login_required(login_url="my-login")
@@ -9,5 +10,12 @@ def writer_dashboard(request):
 
 @login_required(login_url="my-login")
 def create_article(request):
+
+    form = ArticleForm()
+    if request.method == "POST":
+        form = ArticleForm(request.POST)
+
+        if form.is_valid():
+            article = form.save()
 
     return render(request, "writer/create-article.html")

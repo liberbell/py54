@@ -25,4 +25,4 @@ def create_article(request):
         
     context = {'CreateArticleForm': form}
 
-    return render(request, "writer/create-article.html")
+    return render(request, "writer/create-article.html", context)

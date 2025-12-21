@@ -22,5 +22,7 @@ def create_article(request):
             article.save()
 
             return HttpResponse("Article created!")
+        
+    context = {'CreateArticleForm': form}
 
     return render(request, "writer/create-article.html")

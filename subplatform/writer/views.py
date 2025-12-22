@@ -23,6 +23,7 @@ def create_article(request):
 
             return HttpResponse("Article created!")
         
+    # context = {'CreateArticleForm': form}
     context = {'CreateArticleForm': form}
 
     return render(request, "writer/create-article.html", context)

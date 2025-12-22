@@ -11,9 +11,10 @@
 
         <br>
 
-        <form method="POST" autocomplete="off" action="">
+        <form method="POST" autocomplete="off">
             {% csrf_token %}
             {{CreateArticleForm|crispy}}
+            <br>
 
             <input class="btn btn-success w-100" type="submit" value="Create article"/>
 

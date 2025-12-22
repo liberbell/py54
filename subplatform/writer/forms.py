@@ -4,5 +4,5 @@ from django.forms import ModelForm
 class ArticleForm(ModelForm):
 
     class Meta:
-        model = "Article"
+        model = Article
         fields = ["title", "content", "is_premium",]

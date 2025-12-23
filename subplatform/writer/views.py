@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . forms import ArticleForm
 from django.http import HttpResponse
+from . models import Article
 
 # Create your views here.
 @login_required(login_url="my-login")
@@ -30,5 +31,8 @@ def create_article(request):
 
 @login_required(login_url="my-login")
 def my_articles(request):
+
+    current_user = request.user.id
+    article = Article.objects.all()
 
     pass

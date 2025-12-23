@@ -33,6 +33,7 @@ def create_article(request):
 def my_articles(request):
 
     current_user = request.user.id
-    article = Article.objects.all()
+    article = Article.objects.all().filter(user=current_user)
 
-    pass
+    context = {"AllArticles": article}
+    return render(request, "writer/my-articles.html", context)

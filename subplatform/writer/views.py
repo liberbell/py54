@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . forms import ArticleForm
 from django.http import HttpResponse
@@ -21,7 +21,7 @@ def create_article(request):
             article.user = request.user
             article.save()
 
-            return HttpResponse("Article created!")
+            return redirect("my-articles")
         
     # context = {'CreateArticleForm': form}
     context = {'CreateArticleForm': form}

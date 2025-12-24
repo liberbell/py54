@@ -52,5 +52,5 @@ def update_article(request, pk):
 
             return redirect("my-articles")
         
-    context = {"UpdateArticlForm": form}
+    context = {"UpdateArticleForm": form}
     return render(request, "writer/update-article.html", context)

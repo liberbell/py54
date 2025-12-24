@@ -43,7 +43,7 @@ def update_article(request, pk):
 
     article = Article.objects.get(id=pk)
     form = ArticleForm(instance=article)
-    
+
     if request.method == "POST":
         form = ArticleForm(request.POST, instance=article)
 
@@ -51,3 +51,6 @@ def update_article(request, pk):
             form.save()
 
             return redirect("my-articles")
+        
+    context = {"UpdateArticlForm": form}
+    return render(request, "writer/update-article.html", context)

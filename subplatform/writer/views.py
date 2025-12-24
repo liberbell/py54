@@ -43,8 +43,11 @@ def update_article(request, pk):
 
     article = Article.objects.get(id=pk)
     form = ArticleForm(instance=article)
+    
     if request.method == "POST":
         form = ArticleForm(request.POST, instance=article)
 
         if form.is_valid():
             form.save()
+
+            return redirect("my-articles")

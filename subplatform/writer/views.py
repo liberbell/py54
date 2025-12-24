@@ -37,3 +37,8 @@ def my_articles(request):
 
     context = {"AllArticles": article}
     return render(request, "writer/my-articles.html", context)
+
+@login_required(login_url="my-login")
+def update_article(request):
+
+    pass

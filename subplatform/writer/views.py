@@ -58,3 +58,8 @@ def update_article(request, pk):
         
     context = {"UpdateArticleForm": form}
     return render(request, "writer/update-article.html", context)
+
+@login_required(login_url="my-login")
+def delete_article(request, pk):
+
+    pass

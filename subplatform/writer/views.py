@@ -62,11 +62,14 @@ def update_article(request, pk):
 @login_required(login_url="my-login")
 def delete_article(request, pk):
 
-    article = Article.objects.get(id=pk)
+    try:
+        article = Article.objects.get(id=pk, user=request.user)
+    except:
+        redirect("my-articles")
 
     if request.method == "POST":
         article.delete()
 
         return redirect("my-articles")
 
-    pass
+    return render(request, "writer/delete-article.html")

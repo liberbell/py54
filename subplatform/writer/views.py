@@ -73,3 +73,8 @@ def delete_article(request, pk):
         return redirect("my-articles")
 
     return render(request, "writer/delete-article.html")
+
+@login_required(login_url="my-login")
+def account_management(request):
+
+    pass

@@ -14,4 +14,5 @@ class UpdateUserForm(ModelForm):
 
     class Meta:
         model = CustomUser
-    pass
+        fields = ["email", "first_name", "last_name",]
+        exclude = ["password1", "password2",]

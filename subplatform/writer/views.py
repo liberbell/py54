@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from . forms import ArticleForm
+from . forms import ArticleForm, UpdateUserForm
 from django.http import HttpResponse
 from . models import Article
 
@@ -77,4 +77,4 @@ def delete_article(request, pk):
 @login_required(login_url="my-login")
 def account_management(request):
 
-    pass
+    form = UpdateUserForm(instance=request.user)

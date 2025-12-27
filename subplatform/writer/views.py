@@ -65,7 +65,7 @@ def delete_article(request, pk):
     try:
         article = Article.objects.get(id=pk, user=request.user)
     except:
-        redirect("my-articles")
+        return redirect("my-articles")
 
     if request.method == "POST":
         article.delete()

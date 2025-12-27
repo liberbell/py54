@@ -13,10 +13,10 @@
 
         <form method="POST" autocomplete="off">
             {% csrf_token %}
-            {{UpdateArticleForm|crispy}}
+            {{UpdateUserForm|crispy}}
             <br>
 
-            <input class="btn btn-success w-100" type="submit" value="Update article"/>
+            <input class="btn btn-success w-100" type="submit" value="Update account details"/>
 
         </form>
 

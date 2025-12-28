@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from . forms import ArticleForm, UpdateUserForm
 from django.http import HttpResponse
 from . models import Article
+from account.models import CustomUser
 
 # Create your views here.
 @login_required(login_url="my-login")
@@ -92,4 +93,5 @@ def account_management(request):
 @login_required(login_url="my-login")
 def delete_account(request):
 
-    pass
+    if request.method == "POST":
+        deleteuser = CustomUser.objects.get(email=request.user)

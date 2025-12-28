@@ -88,3 +88,8 @@ def account_management(request):
     context = {"UpdateUserForm": form}
 
     return render(request, "writer/account-management.html", context)
+
+@login_required(login_url="my-login")
+def delete_account(request):
+
+    pass

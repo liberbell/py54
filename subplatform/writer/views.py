@@ -95,3 +95,8 @@ def delete_account(request):
 
     if request.method == "POST":
         deleteuser = CustomUser.objects.get(email=request.user)
+        deleteuser.delete()
+
+        return redirect("my-login")
+    
+    return render(request, "writer/delete-account.html")

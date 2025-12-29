@@ -2,5 +2,9 @@ from django.db import models
 from account.models import CustomUser
 
 class Subscription(models.Model):
-    
+
     subscriber_name = models.CharField(max_length=100)
+    subscription_plan = models.CharField(max_length=255)
+    subscription_cost = models.CharField(max_length=255)
+
+    paypal_subscription_id = models.CharField(max_length=300)

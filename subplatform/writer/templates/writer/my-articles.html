@@ -15,6 +15,9 @@
             {{article.date_posted}}
             <br><br>
 
+            {{article.is_premium}}
+            <hr>
+
             <a href="{% url "update-article" article.id %}">Update article</a>
             <br>
             <a href="{% url "delete-article" article.id %}">Delete article</a>

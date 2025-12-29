@@ -1,3 +1,6 @@
 from django.db import models
+from account.models import CustomUser
 
-# Create your models here.
+class Subscription(models.Model):
+    
+    subscriber_name = models.CharField(max_length=100)

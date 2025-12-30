@@ -11,3 +11,6 @@ class Subscription(models.Model):
     is_active = models.BooleanField(default=False)
 
     user = models.OneToOneField(CustomUser, max_length=10, on_delete=models.CASCADE, unique=True)
+    
+    def __str__(self):
+        return f'{self.subscriber_name} - {self.subscription_plan} subscription'

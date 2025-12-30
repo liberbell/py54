@@ -10,4 +10,4 @@ class Subscription(models.Model):
     paypal_subscription_id = models.CharField(max_length=300)
     is_active = models.BooleanField(default=False)
 
-    user = models.OneToOneField(CustomUser, max_length=10, on_delete=models.CASCADE)
+    user = models.OneToOneField(CustomUser, max_length=10, on_delete=models.CASCADE, unique=True)

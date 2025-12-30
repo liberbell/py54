@@ -15,3 +15,4 @@ def browse_articles(request):
     try:
         subDetails = Subscription.objects.get(user=request.user, is_active=True)
     except:
+        return redirect("client-dashboard")

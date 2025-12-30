@@ -12,4 +12,6 @@ def client_dashboard(request):
 @login_required(login_url="my-login")
 def browse_articles(request):
 
-    
+    try:
+        subDetails = Subscription.objects.get(user=request.user, is_active=True)
+    except:

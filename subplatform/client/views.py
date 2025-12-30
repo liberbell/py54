@@ -6,3 +6,8 @@ from django.contrib.auth.decorators import login_required
 def client_dashboard(request):
 
     return render(request, "client/client-dashboard.html")
+
+@login_required(login_url="my-login")
+def browse_articles(request):
+
+    pass

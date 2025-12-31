@@ -28,3 +28,8 @@ def browse_articles(request):
     context = {"AllClientArticles": articles}
 
     return render(request, "client/browse-articles.html", context)
+
+@login_required(login_url="my-login")
+def subscription_locked(request):
+
+    pass

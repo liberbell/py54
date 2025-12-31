@@ -21,3 +21,10 @@ def browse_articles(request):
 
     if current_subscription_plan == "Standard":
         articles = Article.objects.all().filter(is_premium=False)
+
+    elif current_subscription_plan == "Premium":
+        articles = Article.objects.all()
+
+    context = {"AllClientArticles": articles}
+
+    return render(request, "client/browse-articles.html", context)

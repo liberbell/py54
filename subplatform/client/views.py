@@ -15,7 +15,7 @@ def browse_articles(request):
     try:
         subDetails = Subscription.objects.get(user=request.user, is_active=True)
     except:
-        return render(request, "client/subscription-lockerd.html")
+        return render(request, "client/subscription-locked.html")
     
     current_subscription_plan = subDetails.subscription_plan
 

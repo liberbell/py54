@@ -15,7 +15,7 @@ def browse_articles(request):
     try:
         subDetails = Subscription.objects.get(user=request.user, is_active=True)
     except:
-        return redirect("client-dashboard")
+        return render(request, "client/subscription-lockerd.html")
     
     current_subscription_plan = subDetails.subscription_plan
 
@@ -32,4 +32,4 @@ def browse_articles(request):
 @login_required(login_url="my-login")
 def subscription_locked(request):
 
-    pass
+    return render(request, "client/subscription-locked.html")

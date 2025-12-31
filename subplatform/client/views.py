@@ -7,6 +7,11 @@ from . models import Subscription
 @login_required(login_url="my-login")
 def client_dashboard(request):
 
+    try:
+        subDetails = Subscription.objects.get(user=request.user)
+    except:
+        pass
+
     return render(request, "client/client-dashboard.html")
 
 @login_required(login_url="my-login")

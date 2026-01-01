@@ -15,9 +15,10 @@ def client_dashboard(request):
         return render(request, "client/client-dashboard.html", context)
     
     except:
-        pass
+        subscription_plan = "None"
+        context = {"SubPlan": subscription_plan}
 
-    return render(request, "client/client-dashboard.html")
+        return render(request, "client/client-dashboard.html", context)
 
 @login_required(login_url="my-login")
 def browse_articles(request):

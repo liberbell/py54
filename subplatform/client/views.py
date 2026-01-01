@@ -9,6 +9,8 @@ def client_dashboard(request):
 
     try:
         subDetails = Subscription.objects.get(user=request.user)
+        subscription_plan = subDetails.subscription_plan
+        context = {"SubPlan": subscription_plan}
     except:
         pass
 

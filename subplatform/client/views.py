@@ -65,4 +65,11 @@ def create_subscription(request, subID, plan):
 
     fullName = firstName + " " + lastName
 
+    selected_sub_plan = plan
+
+    if selected_sub_plan == "Standard":
+        sub_cost = "4.99"
+    elif selected_sub_plan == "Premium":
+        sub_cost = "9.99"
+
     return render(request, "client/create-subscription.html")

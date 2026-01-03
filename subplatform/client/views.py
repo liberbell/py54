@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from writer.models import Article
 from . models import Subscription
+from account.models import CustomUser
 
 # Create your views here.
 @login_required(login_url="my-login")
@@ -56,6 +57,12 @@ def account_management(request):
     return render(request, "client/account-management.html")
 
 @login_required(login_url="my-login")
-def create_subscription(request):
+def create_subscription(request, subID, plan):
+
+    custom_user = CustomUser.objects.get(email=request.user)
+    firstName = custom_user.first_name
+    lastName = custom_user.last_name
+
+    fullName = firstName + " " + lastName
 
     return render(request, "client/create-subscription.html")

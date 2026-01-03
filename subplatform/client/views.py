@@ -54,3 +54,8 @@ def subscription_plans(request):
 def account_management(request):
 
     return render(request, "client/account-management.html")
+
+@login_required(login_url="my-login")
+def create_subscription(request):
+
+    return render(request, "client/create-subscription.html")

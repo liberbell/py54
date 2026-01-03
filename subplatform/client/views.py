@@ -72,4 +72,6 @@ def create_subscription(request, subID, plan):
     elif selected_sub_plan == "Premium":
         sub_cost = "9.99"
 
+    subscription = Subscription.objects.create(subscriber_name=fullName, subscription_plans=selected_sub_plan)
+
     return render(request, "client/create-subscription.html")

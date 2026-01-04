@@ -8,7 +8,7 @@
     <br>
 
     <div class="row">
-        <div class="container bg-white shadow-md p-4 form-layout text-center">
+        <div class="container bg-white shadow-md p-5 form-layout text-center">
             <h5>Standard subscription</h5>
             <hr>
 
@@ -34,14 +34,14 @@
                     });
                 },
                 onApprove: function(data, actions) {
-                    var current_url = '/client-subscription/' + data.subscriptionID + "/Standard"
+                    var current_url = 'client/create-subscription/' + data.subscriptionID + "/Standard"
                     windows.open(current_url, '_self')
                 }
             }).render('#paypal-button-container-P-2RK95987N25166642NFLBDVY'); // Renders the PayPal button
             </script>
         </div>
 
-        <div class="container bg-white shadow-md p-4 form-layout text-center">
+        <div class="container bg-white shadow-md p-5 form-layout text-center">
             <h5>Premium subscription</h5>
             <hr>
 
@@ -66,7 +66,7 @@
                     });
                 },
                 onApprove: function(data, actions) {
-                    var current_url = '/client-subscription/' + data.subscriptionID + "/Premium"
+                    var current_url = 'client/create-subscription/' + data.subscriptionID + "/Premium"
                     windows.open(current_url, '_self')
                 }
             }).render('#paypal-button-container-P-8DX132665W711981ENFLUYLY'); // Renders the PayPal button

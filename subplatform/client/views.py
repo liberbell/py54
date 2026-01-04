@@ -72,6 +72,12 @@ def create_subscription(request, subID, plan):
     elif selected_sub_plan == "Premium":
         sub_cost = "9.99"
 
-    subscription = Subscription.objects.create(subscriber_name=fullName, subscription_plans=selected_sub_plan)
+    subscription = Subscription.objects.create(
+        subscriber_name=fullName,
+        subscription_plans=selected_sub_plan,
+        subscription_cost=sub_cost,
+        paypal_subscription_id=subID,
+        is_active=True,
+        user=request.user)
 
     return render(request, "client/create-subscription.html")

@@ -79,5 +79,7 @@ def create_subscription(request, subID, plan):
         paypal_subscription_id=subID,
         is_active=True,
         user=request.user)
+    
+    context = {"SubscriptionPlan": selected_sub_plan}
 
-    return render(request, "client/create-subscription.html")
+    return render(request, "client/create-subscription.html", context)

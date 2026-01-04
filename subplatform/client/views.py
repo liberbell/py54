@@ -74,7 +74,7 @@ def create_subscription(request, subID, plan):
 
     subscription = Subscription.objects.create(
         subscriber_name=fullName,
-        subscription_plans=selected_sub_plan,
+        subscription_plan=selected_sub_plan,
         subscription_cost=sub_cost,
         paypal_subscription_id=subID,
         is_active=True,

@@ -34,7 +34,8 @@
                     });
                 },
                 onApprove: function(data, actions) {
-                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                    var current_url = '/client-subscription/' + data.subscriptionID + "/Standard"
+                    windows.open(current_url, '_self')
                 }
             }).render('#paypal-button-container-P-2RK95987N25166642NFLBDVY'); // Renders the PayPal button
             </script>

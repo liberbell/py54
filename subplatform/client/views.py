@@ -86,6 +86,10 @@ def create_subscription(request, subID, plan):
     return render(request, "client/create-subscription.html", context)
 
 @login_required(login_url="my-login")
-def delete_subscription(request):
+def delete_subscription(request, subID):
+
+    access_token = get_access_token()
+    cancel_subscription_paypal(access_token, subID)
+
 
     return render(request, "client/delete-subscription.html")

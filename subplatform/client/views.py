@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from writer.models import Article
 from . models import Subscription
 from account.models import CustomUser
+from . paypal import *
 
 # Create your views here.
 @login_required(login_url="my-login")

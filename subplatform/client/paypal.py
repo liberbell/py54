@@ -20,7 +20,7 @@ def get_access_token():
 
     return access_token
 
-def cancel_subscription(access_token, subID):
+def cancel_subscription_paypal(access_token, subID):
     
     bearer_token = "Bearer " + access_token
     headers = {

@@ -15,3 +15,7 @@ def get_access_token():
 
     url = "https://api.sandbox.paypal.com/vi/oauth2/token"
     r = requests.post(url, auth=(client_id, secret_id), headers=headers, data=data).json()
+
+    access_token = r["access_token"]
+
+    return access_token

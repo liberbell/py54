@@ -4,7 +4,7 @@ from . models import Subscription
 import configparser
 
 config = configparser.ConfigParser()
-config.read("secret.key")
+config.read("config.ini")
 
 def get_access_token():
 

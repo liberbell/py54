@@ -25,4 +25,7 @@ def cancel_subscription(access_token, subID):
     bearer_token = "Bearer " + access_token
     header = {
         'Content-Type': 'application/json',
+        'Authorization': bearer_token,
     }
+
+    url = "https://api.sandbox.paypal.com/vi/billing/subscriptions/" + subID + "/cancel"

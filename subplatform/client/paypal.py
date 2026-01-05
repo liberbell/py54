@@ -19,3 +19,10 @@ def get_access_token():
     access_token = r["access_token"]
 
     return access_token
+
+def cancel_subscription(access_token, subID):
+    
+    bearer_token = "Bearer " + access_token
+    header = {
+        'Content-Type': 'application/json',
+    }

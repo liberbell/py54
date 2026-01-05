@@ -1,6 +1,10 @@
 import requests
 import json
 from . models import Subscription
+import configparser
+
+config = configparser.ConfigParser()
+config.read("secret.key")
 
 def get_access_token():
 

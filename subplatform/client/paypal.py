@@ -11,4 +11,4 @@ def get_access_token():
     data = {'grant_type': 'client-credentials'}
     headers = {'Accesp' : 'application/json', 'Accept-Language': 'en_US'}
     client_id = "AfWI9P33RrvMnsP0OeerAriRlYOYMkGiHcN6z40KW7mDy1VF66OUUx5tNY9jsumECNbXhb74EEz0svAp"
-    secret_id = "something"
+    secret_id = config["secrets"]["paypal_secret"]

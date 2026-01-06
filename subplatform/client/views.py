@@ -55,7 +55,17 @@ def subscription_plans(request):
 @login_required(login_url="my-login")
 def account_management(request):
 
-    return render(request, "client/account-management.html")
+    try:
+        subDetails = Subscription.objects.get(user=request.user)
+        Subscription_id = subDetails.paypal_subscription_id
+
+        context = {"SubscriptionID": Subscription_id }
+        return render(request, "client/account-management.html", context)
+    except:
+
+        return render(request, "client/account-management.html")        
+
+
 
 @login_required(login_url="my-login")
 def create_subscription(request, subID, plan):

@@ -91,5 +91,8 @@ def delete_subscription(request, subID):
     access_token = get_access_token()
     cancel_subscription_paypal(access_token, subID)
 
+    subscription = Subscription.objects.get(user=request.user, paypal_subscription_id=subID)
+    subscription.delete()
+
 
     return render(request, "client/delete-subscription.html")

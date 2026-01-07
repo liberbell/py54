@@ -8,12 +8,13 @@ def get_access_token():
 
     config = configparser.ConfigParser()
     config.read("config.ini")
+    paypal_secret = config['secrets']['paypal_secret']
+    print(paypal_secret)
 
     data = {'grant_type': 'client-credentials'}
     headers = {'Accesp' : 'application/json', 'Accept-Language': 'en_US'}
     client_id = "AfWI9P33RrvMnsP0OeerAriRlYOYMkGiHcN6z40KW7mDy1VF66OUUx5tNY9jsumECNbXhb74EEz0svAp"
-    secret_id = config["secrets"]["paypal_secret"]
-    print(secret_id)
+    secret_id = paypal_secret
 
     url = "https://api.sandbox.paypal.com/vi/oauth2/token"
     r = requests.post(url, auth=(client_id, secret_id), headers=headers, data=data).json()

@@ -8,8 +8,8 @@ import os
 def get_access_token():
 
     config = configparser.ConfigParser()
-    print(os.path.isfile("./config.ini"))
-    config.read('./config.ini', encoding="utf-8")
+    print(os.path.isfile("client/config.ini"))
+    config.read('client/config.ini', encoding="utf-8")
     var1 = config.get("secrets", "paypal_secret")
     print(var1)
 

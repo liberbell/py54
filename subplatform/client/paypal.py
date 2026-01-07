@@ -3,10 +3,11 @@ import json
 from . models import Subscription
 import configparser
 
-config = configparser.ConfigParser()
-config.read("config.ini")
 
 def get_access_token():
+
+    config = configparser.ConfigParser()
+    config.read("config.ini")
 
     data = {'grant_type': 'client-credentials'}
     headers = {'Accesp' : 'application/json', 'Accept-Language': 'en_US'}

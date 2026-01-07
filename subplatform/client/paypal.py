@@ -15,7 +15,7 @@ def get_access_token():
     client_id = "AfWI9P33RrvMnsP0OeerAriRlYOYMkGiHcN6z40KW7mDy1VF66OUUx5tNY9jsumECNbXhb74EEz0svAp"
     secret_id = paypal_secret
 
-    url = "https://api.sandbox.paypal.com/vi/oauth2/token"
+    url = "https://api.sandbox.paypal.com/v1/oauth2/token"
     r = requests.post(url, auth=(client_id, secret_id), headers=headers, data=data).json()
 
     access_token = r["access_token"]
@@ -30,7 +30,7 @@ def cancel_subscription_paypal(access_token, subID):
         'Authorization': bearer_token,
     }
 
-    url = "https://api.sandbox.paypal.com/vi/billing/subscriptions/" + subID + "/cancel"
+    url = "https://api.sandbox.paypal.com/v1/billing/subscriptions/" + subID + "/cancel"
     r = requests.post(url, headers=headers)
 
     print(r.status_code)

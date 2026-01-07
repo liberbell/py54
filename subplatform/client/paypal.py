@@ -7,8 +7,8 @@ import configparser
 def get_access_token():
 
     config = configparser.ConfigParser()
-    config.read("config.ini")
-    paypal_secret = config['secrets']['paypal_secret']
+    config.read("config.ini", encoding='utf-8')
+    paypal_secret = config.get('secrets', 'paypal_secret')
     print(paypal_secret)
 
     data = {'grant_type': 'client-credentials'}

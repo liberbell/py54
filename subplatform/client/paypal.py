@@ -47,4 +47,7 @@ def update_subscription_paypal(access_token, subID):
     current_sub_plan = subDetails.subscription_plan
 
     if current_sub_plan == "Standard":
-        
+        new_sub_plan_id = "P-8DX132665W711981ENFLUYLY"
+
+    elif current_sub_plan == "Premium":     
+        new_sub_plan_id = "P-2RK95987N25166642NFLBDVY"

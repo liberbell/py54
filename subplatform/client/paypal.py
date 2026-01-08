@@ -44,3 +44,7 @@ def update_subscription_paypal(access_token, subID):
     }
 
     subDetails = Subscription.objects.get(paypal_subscription_id=subID)
+    current_sub_plan = subDetails.subscription_plan
+
+    if current_sub_plan == "Standard":
+        

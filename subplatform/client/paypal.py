@@ -51,3 +51,8 @@ def update_subscription_paypal(access_token, subID):
 
     elif current_sub_plan == "Premium":     
         new_sub_plan_id = "P-2RK95987N25166642NFLBDVY"
+
+    url = "https://api.sandbox.paypal.com/v1/billing/subscriptions/" + subID + "/revice"
+    r = requests.post(url, headers=headers)
+
+    

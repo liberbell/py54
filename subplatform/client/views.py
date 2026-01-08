@@ -106,3 +106,8 @@ def delete_subscription(request, subID):
 
 
     return render(request, "client/delete-subscription.html")
+
+@login_required(login_url="my-login")
+def update_subscription(request, subID):
+
+    pass

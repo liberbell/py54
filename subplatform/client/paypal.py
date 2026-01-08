@@ -34,3 +34,13 @@ def cancel_subscription_paypal(access_token, subID):
     r = requests.post(url, headers=headers)
 
     print(r.status_code)
+
+def update_subscription_paypal(access_token, subID):
+
+    bearer_token = "Bearer " + access_token
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': bearer_token,
+    }
+
+    subDetails = Subscription.objects.get(paypal_subscription_id=subID)

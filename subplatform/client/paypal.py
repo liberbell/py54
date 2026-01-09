@@ -58,5 +58,10 @@ def update_subscription_paypal(access_token, subID):
     }
 
     r = requests.post(url, headers=headers, data=json.dumps(revision_data))
+    response_data = r.json()
+    print(response_data)
 
+    for link in response_data.get("links", []):
+        if link.get("rel") == "approve":
+            approve_link = link["href"]
     

@@ -123,4 +123,4 @@ def update_subscription(request, subID):
     
 def paypal_update_sub_confirmed(request):
 
-    pass
+    subDetails = Subscription.objects.get(user=request.user)

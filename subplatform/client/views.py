@@ -124,3 +124,5 @@ def update_subscription(request, subID):
 def paypal_update_sub_confirmed(request):
 
     subDetails = Subscription.objects.get(user=request.user)
+    subscriptionID =subDetails.paypal_subscription_id
+    context = {"SubscriptionID": subscriptionID}

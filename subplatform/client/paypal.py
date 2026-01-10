@@ -61,7 +61,15 @@ def update_subscription_paypal(access_token, subID):
     response_data = r.json()
     print(response_data)
 
+    approve_link = None
+
     for link in response_data.get("links", []):
         if link.get("rel") == "approve":
             approve_link = link["href"]
+
+    if r.status_code == 200:
+        print("Request was a success")
+        return approve_link
     
+    else:
+        print("Sorry, an error occured.")

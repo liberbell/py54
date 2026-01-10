@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from writer.models import Article
 from . models import Subscription
 from account.models import CustomUser
@@ -112,3 +113,10 @@ def update_subscription(request, subID):
 
     access_token = get_access_token()
     approve_link = update_subscription_paypal(access_token, subID)
+
+    if approve_link:
+
+        return redirect(approve_link)
+    else:
+
+        return HttpResponse("Unable to obtain the approval link.")

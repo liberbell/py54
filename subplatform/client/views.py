@@ -110,4 +110,5 @@ def delete_subscription(request, subID):
 @login_required(login_url="my-login")
 def update_subscription(request, subID):
 
-    pass
+    access_token = get_access_token()
+    approve_link = update_subscription_paypal(access_token, subID)

@@ -120,3 +120,7 @@ def update_subscription(request, subID):
     else:
 
         return HttpResponse("Unable to obtain the approval link.")
+    
+def paypal_update_sub_confirmed(request):
+
+    pass

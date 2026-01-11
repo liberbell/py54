@@ -83,3 +83,6 @@ def get_curren_subscription(access_token, subID):
     }
     url = f"https://api.sandbox.paypal.com/v1/billing/subscriptions/{subID}"
     r = requests.get(url, headers=headers)
+
+    if r.status_code == 200:
+        subscription_data = r.json()

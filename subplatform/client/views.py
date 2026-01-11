@@ -124,8 +124,13 @@ def update_subscription(request, subID):
 @login_required(login_url="my-login")
 def paypal_update_sub_confirmed(request):
 
-    subDetails = Subscription.objects.get(user=request.user)
-    subscriptionID =subDetails.paypal_subscription_id
-    context = {"SubscriptionID": subscriptionID}
+    try:
+        subDetails = Subscription.objects.get(user=request.user)
+        subscriptionID =subDetails.paypal_subscription_id
+        context = {"SubscriptionID": subscriptionID}
 
-    return render(request, "client/paypal-update-sub-confirmed.html", context)
+        return render(request, "client/paypal-update-sub-confirmed.html", context)
+    
+    except:
+        
+        return render(request, "client/paypal-update-sub-confirmed.html")

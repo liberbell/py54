@@ -86,3 +86,8 @@ def get_curren_subscription(access_token, subID):
 
     if r.status_code == 200:
         subscription_data = r.json()
+        current_plan_id = subscription_data.get("plan_id")
+
+        return current_plan_id
+    else:
+        print("Failed to retrieve subscription detail.")

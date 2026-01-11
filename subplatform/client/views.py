@@ -134,3 +134,8 @@ def paypal_update_sub_confirmed(request):
     except:
         
         return render(request, "client/paypal-update-sub-confirmed.html")
+    
+@login_required(login_url="my-login")
+def django_update_sub_confirmed(request):
+
+    pass

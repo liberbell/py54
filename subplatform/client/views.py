@@ -121,6 +121,7 @@ def update_subscription(request, subID):
 
         return HttpResponse("Unable to obtain the approval link.")
     
+@login_required(login_url="my-login")
 def paypal_update_sub_confirmed(request):
 
     subDetails = Subscription.objects.get(user=request.user)

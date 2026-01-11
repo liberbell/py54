@@ -73,3 +73,11 @@ def update_subscription_paypal(access_token, subID):
     
     else:
         print("Sorry, an error occured.")
+
+def get_curren_subscription(access_token, subID):
+
+    bearer_token = "Bearer " + access_token
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': bearer_token,
+    }

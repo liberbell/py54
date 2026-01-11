@@ -91,3 +91,5 @@ def get_curren_subscription(access_token, subID):
         return current_plan_id
     else:
         print("Failed to retrieve subscription detail.")
+
+        return None

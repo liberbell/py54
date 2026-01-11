@@ -81,3 +81,5 @@ def get_curren_subscription(access_token, subID):
         'Content-Type': 'application/json',
         'Authorization': bearer_token,
     }
+    url = f"https://api.sandbox.paypal.com/v1/billing/subscriptions/{subID}"
+    r = requests.get(url, headers=headers)

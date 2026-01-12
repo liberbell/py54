@@ -139,7 +139,7 @@ def paypal_update_sub_confirmed(request):
 def django_update_sub_confirmed(request, subID):
 
     access_token = get_access_token()
-    current_plan_id = get_curren_subscription(access_token, subID)
+    current_plan_id = get_current_subscription(access_token, subID)
 
     if current_plan_id == "P-9G139471S2419603PNFSGBTI":
         new_plan_nmae = "Standard"

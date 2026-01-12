@@ -17,7 +17,7 @@
 
             <hr>
 
-            <div id="paypal-button-container-P-2RK95987N25166642NFLBDVY"></div>
+            <div id="paypal-button-container-P-9G139471S2419603PNFSGBTI"></div>
             <script src="https://www.paypal.com/sdk/js?client-id=Achp6jTUYGsux2gu8xprOqE0gGo9TwyQ5eFJuWH0vzuw30r53uez_xq0ivNDrJllAZA9JuXG3DC_me-3&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
             <script>
             paypal.Buttons({
@@ -30,14 +30,14 @@
                 createSubscription: function(data, actions) {
                     return actions.subscription.create({
                     /* Creates the subscription */
-                    plan_id: 'P-2RK95987N25166642NFLBDVY'
+                    plan_id: 'P-9G139471S2419603PNFSGBTI'
                     });
                 },
                 onApprove: function(data, actions) {
                     var current_url = '/client/create-subscription/' + data.subscriptionID + "/Standard"
                     window.open(current_url, '_self')
                 }
-            }).render('#paypal-button-container-P-2RK95987N25166642NFLBDVY'); // Renders the PayPal button
+            }).render('#paypal-button-container-P-9G139471S2419603PNFSGBTI'); // Renders the PayPal button
             </script>
         </div>
 

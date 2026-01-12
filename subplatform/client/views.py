@@ -142,15 +142,15 @@ def django_update_sub_confirmed(request, subID):
     current_plan_id = get_current_subscription(access_token, subID)
 
     if current_plan_id == "P-9G139471S2419603PNFSGBTI":
-        new_plan_nmae = "Standard"
+        new_plan_name = "Standard"
         new_cost = "4.99"
 
-        Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_nmae, subscription_cost=new_cost)
+        Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_name, subscription_cost=new_cost)
 
     elif current_plan_id == "P-3F8944782J180250SNFSGCXY":
-        new_plan_nmae = "Premium"
+        new_plan_name = "Premium"
         new_cost = "9.99"
 
-        Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_nmae, subscription_cost=new_cost)
+        Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_name, subscription_cost=new_cost)
 
     return render(request, "client/django-update-sub-confirmed.html")

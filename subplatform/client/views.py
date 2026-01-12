@@ -136,6 +136,13 @@ def paypal_update_sub_confirmed(request):
         return render(request, "client/paypal-update-sub-confirmed.html")
     
 @login_required(login_url="my-login")
-def django_update_sub_confirmed(request):
+def django_update_sub_confirmed(request, subID):
 
-    pass
+    access_token = get_access_token()
+    current_plan_id = get_curren_subscription(access_token, subID)
+
+    if current_plan_id == "P-2RK95987N25166642NFLBDVY":
+        new_plan_nmae = "Standard"
+        new_cost = "4.99"
+
+        Subscription.objects.filter(paypal_subscription_id=subID)

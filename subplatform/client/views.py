@@ -126,7 +126,7 @@ def paypal_update_sub_confirmed(request):
 
     try:
         subDetails = Subscription.objects.get(user=request.user)
-        subscriptionID =subDetails.paypal_subscription_id
+        subscriptionID = subDetails.paypal_subscription_id
         context = {"SubscriptionID": subscriptionID}
 
         return render(request, "client/paypal-update-sub-confirmed.html", context)

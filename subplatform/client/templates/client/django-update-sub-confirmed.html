@@ -1,0 +1,19 @@
+{% extends "client/navbar.html" %}
+
+{% block content %}
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout text-center">
+        <h5>  Application approval confirmed. </h5>
+        <br>
+        <h1> ✅ </h1>
+        <br>
+        <p>
+            Your request to update your subscription has been confirmed on paypal.
+        </p>
+        <a class="btn btn-success" type="button" href="{% url "browse-articles" %}">
+            >&nbsp; Confirm for final approval
+        </a>
+    </div>
+
+{% endblock content %}

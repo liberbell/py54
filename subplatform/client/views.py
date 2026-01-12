@@ -152,3 +152,5 @@ def django_update_sub_confirmed(request, subID):
         new_cost = "9.99"
 
         Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_nmae, subscription_cost=new_cost)
+
+    return render(request, "client/django-update-sub-confirmed.html")

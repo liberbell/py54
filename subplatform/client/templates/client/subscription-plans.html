@@ -50,7 +50,7 @@
 
             <hr>
 
-            <div id="paypal-button-container-P-8DX132665W711981ENFLUYLY"></div>
+            <div id="paypal-button-container-P-3F8944782J180250SNFSGCXY"></div>
             <script>
             paypal.Buttons({
                 style: {
@@ -62,14 +62,14 @@
                 createSubscription: function(data, actions) {
                     return actions.subscription.create({
                     /* Creates the subscription */
-                    plan_id: 'P-8DX132665W711981ENFLUYLY'
+                    plan_id: 'P-3F8944782J180250SNFSGCXY'
                     });
                 },
                 onApprove: function(data, actions) {
                     var current_url = '/client/create-subscription/' + data.subscriptionID + "/Premium"
                     window.open(current_url, '_self')
                 }
-            }).render('#paypal-button-container-P-8DX132665W711981ENFLUYLY'); // Renders the PayPal button
+            }).render('#paypal-button-container-P-3F8944782J180250SNFSGCXY'); // Renders the PayPal button
             </script>
         </div>
 

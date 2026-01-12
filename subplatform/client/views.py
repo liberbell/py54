@@ -145,4 +145,4 @@ def django_update_sub_confirmed(request, subID):
         new_plan_nmae = "Standard"
         new_cost = "4.99"
 
-        Subscription.objects.filter(paypal_subscription_id=subID)
+        Subscription.objects.filter(paypal_subscription_id=subID).update(subscription_plan=new_plan_nmae, subscription_cost=new_cost)

@@ -77,29 +77,31 @@ def account_management(request):
 def create_subscription(request, subID, plan):
 
     custom_user = CustomUser.objects.get(email=request.user)
-    firstName = custom_user.first_name
-    lastName = custom_user.last_name
 
-    fullName = firstName + " " + lastName
+    if not Subscription.objects.filter(user=request.user).exists():
+        firstName = custom_user.first_name
+        lastName = custom_user.last_name
 
-    selected_sub_plan = plan
+        fullName = firstName + " " + lastName
 
-    if selected_sub_plan == "Standard":
-        sub_cost = "4.99"
-    elif selected_sub_plan == "Premium":
-        sub_cost = "9.99"
+        selected_sub_plan = plan
 
-    subscription = Subscription.objects.create(
-        subscriber_name=fullName,
-        subscription_plan=selected_sub_plan,
-        subscription_cost=sub_cost,
-        paypal_subscription_id=subID,
-        is_active=True,
-        user=request.user)
-    
-    context = {"SubscriptionPlan": selected_sub_plan}
+        if selected_sub_plan == "Standard":
+            sub_cost = "4.99"
+        elif selected_sub_plan == "Premium":
+            sub_cost = "9.99"
 
-    return render(request, "client/create-subscription.html", context)
+        subscription = Subscription.objects.create(
+            subscriber_name=fullName,
+            subscription_plan=selected_sub_plan,
+            subscription_cost=sub_cost,
+            paypal_subscription_id=subID,
+            is_active=True,
+            user=request.user)
+        
+        context = {"SubscriptionPlan": selected_sub_plan}
+
+        return render(request, "client/create-subscription.html", context)
 
 @login_required(login_url="my-login")
 def delete_subscription(request, subID):

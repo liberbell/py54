@@ -109,14 +109,17 @@ def create_subscription(request, subID, plan):
 @login_required(login_url="my-login")
 def delete_subscription(request, subID):
 
-    access_token = get_access_token()
-    cancel_subscription_paypal(access_token, subID)
+    try:
+        access_token = get_access_token()
+        cancel_subscription_paypal(access_token, subID)
 
-    subscription = Subscription.objects.get(user=request.user, paypal_subscription_id=subID)
-    subscription.delete()
+        subscription = Subscription.objects.get(user=request.user, paypal_subscription_id=subID)
+        subscription.delete()
 
 
-    return render(request, "client/delete-subscription.html")
+        return render(request, "client/delete-subscription.html")
+    except:
+        return redirect("client-dashboard")
 
 @login_required(login_url="my-login")
 def update_subscription(request, subID):

@@ -51,7 +51,12 @@ def subscription_locked(request):
 @login_required(login_url="my-login")
 def subscription_plans(request):
 
-    return render(request, "client/subscription-plans.html")
+    if not Subscription.objects.filter(user=request.user).exists():
+
+        return render(request, "client/subscription-plans.html")
+    else:
+        
+        return redirect("client-dashboard")
 
 @login_required(login_url="my-login")
 def account_management(request):

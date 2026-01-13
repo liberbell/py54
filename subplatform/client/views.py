@@ -58,9 +58,9 @@ def account_management(request):
 
     try:
         subDetails = Subscription.objects.get(user=request.user)
-        Subscription_id = subDetails.paypal_subscription_id
+        subscription_id = subDetails.paypal_subscription_id
 
-        context = {"SubscriptionID": Subscription_id }
+        context = {"SubscriptionID": subscription_id }
         return render(request, "client/account-management.html", context)
     except:
 

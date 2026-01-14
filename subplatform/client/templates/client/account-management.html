@@ -27,7 +27,7 @@
             <hr>
             <p> Permanentry delete your subscription by clicking the delete button below: </p>
             <br>
-            <a class="btn btn-danger" type="button" href="{% url "delete-subscription" SubscriptionID %}">
+            <a id="deleteButton" class="btn btn-danger" type="button" href="{% url "delete-subscription" SubscriptionID %}">
                 > &nbsp; Delete Subscription
             </a>
         </div>
@@ -39,7 +39,7 @@
             <hr>
             <p> Upgrade or Downgrade your subscription by clicking the button below: </p>
             <br>
-            <a class="btn btn-info" type="button" href="{% url "update-subscription" SubscriptionID %}">
+            <a id="updateButton" class="btn btn-info" type="button" href="{% url "update-subscription" SubscriptionID %}">
                 > &nbsp; Update Subscription
             </a>
         </div>

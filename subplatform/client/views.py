@@ -76,10 +76,22 @@ def account_management(request):
         subscription_id = subDetails.paypal_subscription_id
 
         context = {"SubscriptionID": subscription_id, "UpdateUserForm": form }
+
         return render(request, "client/account-management.html", context)
     except:
 
-        return render(request, "client/account-management.html")        
+        form = UpdateUserForm(instance=request.user)
+        if request.method == "POST":
+            form = UpdateUserForm(request.POST, instance=request.user)
+
+            if form.is_valid():
+                form.save()
+                
+                return redirect("client-dashboard")
+            
+        context = {"UpdateUserForm": form }
+
+        return render(request, "client/account-management.html", context)     
 
 
 @login_required(login_url="my-login")

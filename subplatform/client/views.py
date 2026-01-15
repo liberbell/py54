@@ -93,6 +93,10 @@ def account_management(request):
 
         return render(request, "client/account-management.html", context)     
 
+@login_required(login_url="my-login")
+def delete_account(request):
+
+    pass
 
 @login_required(login_url="my-login")
 def create_subscription(request, subID, plan):

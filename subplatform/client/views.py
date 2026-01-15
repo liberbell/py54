@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from writer.models import Article
 from . models import Subscription
 from account.models import CustomUser
+from . forms import UpdateUserForm
 from . paypal import *
 
 # Create your views here.
@@ -62,6 +63,15 @@ def subscription_plans(request):
 def account_management(request):
 
     try:
+        form = UpdateUserForm(instance=request.user)
+        if request.method == "POST":
+            form = UpdateUserForm(request.POST, instance=request.user)
+
+            if form.is_valid():
+                form.save()
+                
+                return redirect("client-dashboard")
+            
         subDetails = Subscription.objects.get(user=request.user)
         subscription_id = subDetails.paypal_subscription_id
 
@@ -70,7 +80,6 @@ def account_management(request):
     except:
 
         return render(request, "client/account-management.html")        
-
 
 
 @login_required(login_url="my-login")

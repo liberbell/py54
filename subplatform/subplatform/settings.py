@@ -144,3 +144,5 @@ EMAIL_USE_TLS = 'True'
 
 EMAIL_HOST_USER = 'somebody@gmail.com'
 EMAIL_HOST_PASSWORD = 'thisisnotrealpassword'
+
+DEFAULT_FROM_EMAIL = 'somebody@gmail.com'

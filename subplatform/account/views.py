@@ -53,3 +53,19 @@ def user_logout(request):
     logout(request)
 
     return redirect("my-login")
+
+def email_verification(request):
+
+    pass
+
+def email_verification_sent(request):
+
+    pass
+
+def email_verification_success(request):
+
+    pass
+
+def email_verification_failed(request):
+
+    pass

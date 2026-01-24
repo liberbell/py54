@@ -8,6 +8,8 @@ from . token import user_tokenizer_generate
 from django.template.loader import render_to_string
 from django.utils.encoding import force_str, force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -32,6 +34,10 @@ def register(request):
                 "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                 "token": user_tokenizer_generate.make_token(user),
             })
+            print(message)
+            user_email = user.email
+
+            send_mail(subject=subject, message=message, from_email="settings.EMAIL_HOST_USER", recipient_list=user_email)
 
             return redirect("my-login")
             # return HttpResponse("User registered.")

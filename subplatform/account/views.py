@@ -20,7 +20,9 @@ def register(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.is_active = False
+            user.save()
 
             return redirect("my-login")
             # return HttpResponse("User registered.")

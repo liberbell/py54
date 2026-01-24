@@ -24,6 +24,13 @@ def register(request):
             user.is_active = False
             user.save()
 
+            current_site = get_current_site(request)
+            subject = "Activate your account"
+            message = render_to_string("account/email-verification.html", {
+                "user": user,
+                "domain": current_site.domain,
+            })
+
             return redirect("my-login")
             # return HttpResponse("User registered.")
     

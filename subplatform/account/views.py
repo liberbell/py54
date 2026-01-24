@@ -37,7 +37,7 @@ def register(request):
             print(message)
             user_email = user.email
 
-            send_mail(subject=subject, message=message, from_email="settings.EMAIL_HOST_USER", recipient_list=user_email)
+            send_mail(subject=subject, message=message, from_email="settings.EMAIL_HOST_USER", recipient_list=[user_email])
 
             return redirect("my-login")
             # return HttpResponse("User registered.")

@@ -3,6 +3,8 @@ from . forms import CreateUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.sites.shortcuts import get_current_site
+from . token import user_tokenizer_generate
 
 # Create your views here.
 def home(request):

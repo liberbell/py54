@@ -10,6 +10,7 @@ from django.utils.encoding import force_str, force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import send_mail
 from django.conf import settings
+from . models import CustomUser
 
 # Create your views here.
 def home(request):
@@ -79,6 +80,11 @@ def user_logout(request):
 def email_verification(request, uidb64, token):
 
     unique_token = force_str(urlsafe_base64_decode(uidb64))
+    custom_user = CustomUser.objects.get(pk=unique_token)
+
+    if custom_user and user_tokenizer_generate.check_token(custom_user, token):
+
+        pass
 
 def email_verification_sent(request):
 

@@ -97,8 +97,8 @@ def email_verification_sent(request):
 
 def email_verification_success(request):
 
-    pass
+    return render(request, "account/email-verification-success.html")
 
 def email_verification_failed(request):
 
-    pass
+    return render(request, "account/email-verification-failed.html")

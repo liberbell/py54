@@ -40,7 +40,7 @@ def register(request):
 
             send_mail(subject=subject, message=message, from_email="settings.EMAIL_HOST_USER", recipient_list=[user_email])
 
-            return redirect("my-login")
+            return redirect("email-verification-sent")
             # return HttpResponse("User registered.")
     
     context = {"RegisterForm": form}

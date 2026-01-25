@@ -84,7 +84,12 @@ def email_verification(request, uidb64, token):
 
     if custom_user and user_tokenizer_generate.check_token(custom_user, token):
 
-        pass
+        custom_user.is_active = True
+        custom_user.save()
+
+        return redirect("email-verification-success")
+    else:
+        return redirect("email-verification-failed")
 
 def email_verification_sent(request):
 

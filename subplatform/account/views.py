@@ -76,9 +76,9 @@ def user_logout(request):
 
     return redirect("my-login")
 
-def email_verification(request):
+def email_verification(request, uidb64, token):
 
-    pass
+    unique_token = force_str(urlsafe_base64_decode(uidb64))
 
 def email_verification_sent(request):
 
